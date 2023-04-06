@@ -1,1 +1,31 @@
-<p>sidebar works!</p>
+<h2>Busquedas</h2>
+<hr>
+<ul class="list-group">
+  <!-- routerLinkActive, si estas activo aniade esta clase
+    esto se tiene que aniadir por que la ruta esta configurada como full osea
+    The path-match strategy 'full' matches against the entire URL, por eso siempre se carga y le tenemos que pasar esas
+    opciones extra de oye papi si solo tiene lo mismo
+  -->
+  <li
+    routerLink=""
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="list-group-item"
+  >
+    Buscar pais
+  </li>
+  <li
+    routerLink="region"
+    routerLinkActive="active"
+    class="list-group-item"
+  >
+    Por region
+  </li>
+  <li
+    routerLink="capital"
+    routerLinkActive="active"
+    class="list-group-item"
+  >
+    Por capital
+  </li>
+</ul>
