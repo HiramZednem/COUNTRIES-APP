@@ -1,1 +1,32 @@
-<p>por-capital works!</p>
+<h2>Por Capital:</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <app-pais-input
+      (onEnter)="buscar( $event )"
+      terminoBuscado="capital"
+    />
+  </div>
+</div>
+
+<hr>
+
+<div
+  *ngIf="hayError"
+  class="alert alert-danger"
+>
+  No se encontro nada con el termino "{{ termino }}"
+</div>
+
+<div
+  *ngIf="paises.length > 0"
+  class="row">
+  <div class="col">
+    <!-- Volvere escribirlo por que se me va, esto se usa para pasar propiedades a componentes hijos,
+    [nombre variable componente hijo]="propiedad que quiero pasar" -->
+    <app-pais-tabla [paises]="paises"/>
+  </div>
+</div>
+
+
