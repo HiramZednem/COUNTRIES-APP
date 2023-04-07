@@ -1,37 +1,29 @@
 <h2>Por Pais:</h2>
 <hr>
 
-
 <div class="row">
-
   <div class="col">
-    <form autocomplete="off" (ngSubmit)="buscar()">
-      <input
-        type="text"
-        name="termino"
-        class="form-control"
-        placeholder="Buscar pais..."
-        [(ngModel)]="termino"
-      />
-    </form>
-
-    <hr>
-
-    <div
-      *ngIf="hayError"
-      class="alert alert-danger"
-    >
-      No se encontro nada con el termino "{{ termino }}"
-    </div>
-
-    <div
-      *ngIf="paises.length > 0"
-      class="row">
-      <div class="col">
-        <!-- Volvere escribirlo por que se me va, esto se usa para pasar propiedades a componentes hijos,
-        [nombre variable componente hijo]="propiedad que quiero pasar" -->
-        <app-pais-tabla [paises]="paises"/>
-      </div>
-    </div>
+    <app-pais-input (onEnter)="buscar( $event )"/>
   </div>
 </div>
+
+<hr>
+
+<div
+  *ngIf="hayError"
+  class="alert alert-danger"
+>
+  No se encontro nada con el termino "{{ termino }}"
+</div>
+
+<div
+  *ngIf="paises.length > 0"
+  class="row">
+  <div class="col">
+    <!-- Volvere escribirlo por que se me va, esto se usa para pasar propiedades a componentes hijos,
+    [nombre variable componente hijo]="propiedad que quiero pasar" -->
+    <app-pais-tabla [paises]="paises"/>
+  </div>
+</div>
+
+

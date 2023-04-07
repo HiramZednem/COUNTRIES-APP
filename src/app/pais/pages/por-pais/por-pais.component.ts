@@ -12,7 +12,8 @@ export class PorPaisComponent {
   paises: Country[] = [];
 
   constructor( private paisService: PaisService) {}
-  buscar() {
+  buscar( terminoBusqueda: string ) {
+    this.termino = terminoBusqueda;
     this.hayError = false;
 
     this.paisService.buscarPais(this.termino)
