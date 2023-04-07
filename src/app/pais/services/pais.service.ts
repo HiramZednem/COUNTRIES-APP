@@ -20,4 +20,9 @@ export class PaisService {
     const url = `${ this.api }/capital/${ termino }`;
     return this.httpClient.get<Country[]>( url );
   }
+
+  buscarPaisPorCodigo( id: string ) {
+    const url = `${ this.api }/alpha/${ id }`;
+    return this.httpClient.get<Country[]>( url );
+  }
 }
