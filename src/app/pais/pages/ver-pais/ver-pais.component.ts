@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PaisService } from '../../services/pais.service';
 
@@ -17,14 +17,22 @@ export class VerPaisComponent implements OnInit{
 /*
     Al iniciar la app, traete los parametros del url que te defini en app-routing.module
  */
-    this.activatedRouted
-      .params
-      .subscribe( ({id}) => {
-        this.paisService
-          .buscarPaisPorCodigo(id)
-          .subscribe(pais => {console.log(pais)})
-
-      });
+    // this.activatedRouted
+    //   .params
+    //   .subscribe( ({id}) => {
+    //     this.paisService
+    //       .buscarPaisPorCodigo(id)
+    //       .subscribe(pais => {console.log(pais)})
+    //
+    //   });
+    this.activatedRouted.params
+      .pipe(
+        switchMap( ({id}) => this.paisService.buscarPaisPorCodigo(id) )
+        //el pipe permite modificar mi subscribe de params, y poder retornar otro observer y no tener un subscribe dentro de un subscribe
+      )
+      .subscribe( response => {
+          console.log(response)
+      })
   }
 
 
