@@ -1,29 +1,33 @@
-<h3>Buscar Por region <small>{{ regionActiva | titlecase }}</small></h3>
-<hr>
+<div class="animate__animated animate__bounceInDown">
+  <h3>Buscar Por region <small>{{ regionActiva | titlecase }}</small></h3>
+  <hr>
+</div>
 
-<h5>Seleccione la region</h5>
-<div class="row">
-  <div class="col">
-    <!-- Formas de poner clases de CSS condicionales -->
-    <!--
-        aqui, esta evaluando si tiene la condicion, y si la tiene, le agrega la clase que queremos, el detalle es que no podemos borrar
-        la clase que ya teniamos
-        [class.btn-primary] = "region===regionActiva"
-    -->
-    <!--
-      Aqui solo le esta aplicando un estilo, pero el problema es que se esta evaluando dos veces la condicion, cosa que es contraproducente.
-        [ngClass]="{
-        'btn-primary': region === regionActiva,
-        'btn-outline-primary': region !== regionActiva
-        }"
-    -->
-    <button
-      *ngFor="let region of regiones"
-      [class]="getClaseCSS( region )"
-      (click)="activarRegion( region )"
-    >
-      {{region | titlecase}}
-    </button>
+<div  class="row animate__animated animate__bounceInRight">
+  <h5>Seleccione la region</h5>
+  <div class="row">
+    <div class="col">
+      <!-- Formas de poner clases de CSS condicionales -->
+      <!--
+          aqui, esta evaluando si tiene la condicion, y si la tiene, le agrega la clase que queremos, el detalle es que no podemos borrar
+          la clase que ya teniamos
+          [class.btn-primary] = "region===regionActiva"
+      -->
+      <!--
+        Aqui solo le esta aplicando un estilo, pero el problema es que se esta evaluando dos veces la condicion, cosa que es contraproducente.
+          [ngClass]="{
+          'btn-primary': region === regionActiva,
+          'btn-outline-primary': region !== regionActiva
+          }"
+      -->
+      <button
+        *ngFor="let region of regiones"
+        [class]="getClaseCSS( region )"
+        (click)="activarRegion( region )"
+      >
+        {{region | titlecase}}
+      </button>
+    </div>
   </div>
 </div>
 

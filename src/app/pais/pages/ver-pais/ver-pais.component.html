@@ -5,42 +5,44 @@
   Espere por favor...
 </div>
 
-<ng-template #divPais>
-  <div class="row">
-    <div
-      class="col-12">
-      <h1>Pais: <small>{{pais.name.common}}</small></h1>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-4">
-      <h3>Bandera</h3>
-      <img [src]="pais.flags.png" [alt]="pais.flags.alt" class="img-thumbnail"/>
+<ng-template #divPais >
+  <div class="animate__animated animate__fadeIn">
+    <div class="row">
+      <div
+        class="col-12">
+        <h1>Pais: <small>{{pais.name.common}}</small></h1>
+      </div>
     </div>
 
-    <div class="col">
-      <h3>Informacion:</h3>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <strong>Poblacion</strong> {{pais.population | number}}
-        </li>
-        <li class="list-group-item">
-          <strong>Codigo Numerico</strong> {{pais.ccn3}}
-        </li>
-        <li class="list-group-item">
-          <strong>Codigo alpha3</strong> {{pais.cca3}}
-        </li>
-      </ul>
+    <div class="row">
+      <div class="col-4">
+        <h3>Bandera</h3>
+        <img [src]="pais.flags.png" [alt]="pais.flags.alt" class="img-thumbnail"/>
+      </div>
+
+      <div class="col">
+        <h3>Informacion:</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Poblacion</strong> {{pais.population | number}}
+          </li>
+          <li class="list-group-item">
+            <strong>Codigo Numerico</strong> {{pais.ccn3}}
+          </li>
+          <li class="list-group-item">
+            <strong>Codigo alpha3</strong> {{pais.cca3}}
+          </li>
+        </ul>
+      </div>
+
     </div>
 
-  </div>
-
-  <h3>Coordenadas</h3>
-  <div class="row">
-    <div class="col">
-      <span class="badge bg-primary mx-1">{{ pais.latlng[0] }}</span>
-      <span class="badge bg-primary mx-1">{{ pais.latlng[1] }}</span>
+    <h3>Coordenadas</h3>
+    <div class="row">
+      <div class="col">
+        <span class="badge bg-primary mx-1">{{ pais.latlng[0] }}</span>
+        <span class="badge bg-primary mx-1">{{ pais.latlng[1] }}</span>
+      </div>
     </div>
   </div>
 </ng-template>
