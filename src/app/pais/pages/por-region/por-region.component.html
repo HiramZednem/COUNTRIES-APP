@@ -1,1 +1,42 @@
-<p>por-region works!</p>
+<h3>Buscar Por region <small>{{ regionActiva | titlecase }}</small></h3>
+<hr>
+
+<h5>Seleccione la region</h5>
+<div class="row">
+  <div class="col">
+    <!-- Formas de poner clases de CSS condicionales -->
+    <!--
+        aqui, esta evaluando si tiene la condicion, y si la tiene, le agrega la clase que queremos, el detalle es que no podemos borrar
+        la clase que ya teniamos
+        [class.btn-primary] = "region===regionActiva"
+    -->
+    <!--
+      Aqui solo le esta aplicando un estilo, pero el problema es que se esta evaluando dos veces la condicion, cosa que es contraproducente.
+        [ngClass]="{
+        'btn-primary': region === regionActiva,
+        'btn-outline-primary': region !== regionActiva
+        }"
+    -->
+    <button
+      *ngFor="let region of regiones"
+      [class]="getClaseCSS( region )"
+      (click)="activarRegion( region )"
+    >
+      {{region | titlecase}}
+    </button>
+  </div>
+</div>
+
+<div
+  *ngIf="paises.length > 0"
+  class="row">
+  <div class="col">
+    <!-- Volvere escribirlo por que se me va, esto se usa para pasar propiedades a componentes hijos,
+    [nombre variable componente hijo]="propiedad que quiero pasar" -->
+    <app-pais-tabla [paises]="paises"/>
+  </div>
+</div>
+
+
+
+
